@@ -1,6 +1,6 @@
 {
 	"name": "whatsapp",
-	"version": "0.0.5-Alpha",
+	"version": "0.0.1",
 	"description": "SDK for interfacing with WhatsApp Business Platform in Typescript or Node.js using the Cloud API, hosted by Meta.",
 	"main": "./build/index.js",
 	"types": "./build/index.d.ts",
@@ -26,7 +26,7 @@
 		"check-changelog": "node ./scripts/check_changelog.mjs",
 		"check-copyright-headers": "node ./scripts/check_copyright_headers.mjs",
 		"create-version-file": "node ./scripts/create_version_file.mjs",
-		"test": "run-s build test:*",
+		"test": "echo 'testing not yet implemented'",
 		"test:spelling": "cspell \"{README.md,.github/*.md,website/docs/**/*.md}\"",
 		"test:prettier": "run-s prettier-format",
 		"test:lint": "eslint .",
@@ -36,11 +36,12 @@
 		"prettier-watch": "run-script-os",
 		"prettier-watch:win32": "onchange \"./**/*.ts\" \"scripts/*.mjs\" -- prettier --write {{changed}}",
 		"prettier-watch:darwin:linux": "onchange './**/*.ts' 'scripts/*.mjs' -- prettier --write {{changed}}",
-		"prettier-watch:default": "onchange './**/*.ts' 'scripts/*.mjs' -- prettier --write {{changed}}"
+		"prettier-watch:default": "onchange './**/*.ts' 'scripts/*.mjs' -- prettier --write {{changed}}",
+		"publish":"npm publish ./ --registry=https://npm.pkg.github.com --scope=@wrappid"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/WhatsApp/WhatsApp-Nodejs-SDK.git"
+		"url": "git+https://github.com/wrappid/WhatsApp-Nodejs-SDK.git"
 	},
 	"keywords": [
 		"WhatsApp",
@@ -50,14 +51,14 @@
 		"secure",
 		"messaging",
 		"NodeJS",
-		"Cloud API"
+		"Cloud API",
+		"Wrappid"
 	],
 	"author": "Rashed Talukder",
 	"license": "SEE LICENSE IN LICENSE FILE",
 	"bugs": {
-		"url": "https://github.com/WhatsApp/WhatsApp-Nodejs-SDK/issues"
+		"url": "https://github.com/wrappid/WhatsApp-Nodejs-SDK/issues"
 	},
-	"homepage": "https://whatsapp.github.io/WhatsApp-Nodejs-SDK/",
 	"dependencies": {
 		"@types/node": "~18.11.18"
 	},
