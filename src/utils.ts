@@ -44,31 +44,51 @@ const emptyConfigChecker = (senderNumberId?: number) => {
 	}
 };
 
-export const importConfig = (senderNumberId?: number) => {
-	emptyConfigChecker(senderNumberId);
+export const importConfig = (
+	senderNumberId?: number,
+	myConfig?: WAConfigType,
+) => {
+	// emptyConfigChecker(senderNumberId);
 
 	const config: WAConfigType = {
-		[WAConfigEnum.BaseURL]: process.env.WA_BASE_URL || DEFAULT_BASE_URL,
-		[WAConfigEnum.AppId]: process.env.M4D_APP_ID || '',
-		[WAConfigEnum.AppSecret]: process.env.M4D_APP_SECRET || '',
+		[WAConfigEnum.BaseURL]:
+			myConfig?.WA_BASE_URL || process.env.WA_BASE_URL || DEFAULT_BASE_URL,
+		[WAConfigEnum.AppId]: myConfig?.M4D_APP_ID || process.env.M4D_APP_ID || '',
+		[WAConfigEnum.AppSecret]:
+			myConfig?.M4D_APP_SECRET || process.env.M4D_APP_SECRET || '',
 		[WAConfigEnum.PhoneNumberId]:
 			senderNumberId || parseInt(process.env.WA_PHONE_NUMBER_ID || ''),
-		[WAConfigEnum.BusinessAcctId]: process.env.WA_BUSINESS_ACCOUNT_ID || '',
-		[WAConfigEnum.APIVersion]: process.env.CLOUD_API_VERSION || '',
-		[WAConfigEnum.AccessToken]: process.env.CLOUD_API_ACCESS_TOKEN || '',
-		[WAConfigEnum.WebhookEndpoint]: process.env.WEBHOOK_ENDPOINT || '',
+		[WAConfigEnum.BusinessAcctId]:
+			myConfig?.WA_BUSINESS_ACCOUNT_ID ||
+			process.env.WA_BUSINESS_ACCOUNT_ID ||
+			'',
+		[WAConfigEnum.APIVersion]:
+			myConfig?.CLOUD_API_VERSION || process.env.CLOUD_API_VERSION || '',
+		[WAConfigEnum.AccessToken]:
+			myConfig?.CLOUD_API_ACCESS_TOKEN ||
+			process.env.CLOUD_API_ACCESS_TOKEN ||
+			'',
+		[WAConfigEnum.WebhookEndpoint]:
+			myConfig?.WEBHOOK_ENDPOINT || process.env.WEBHOOK_ENDPOINT || '',
 		[WAConfigEnum.WebhookVerificationToken]:
-			process.env.WEBHOOK_VERIFICATION_TOKEN || '',
+			myConfig?.WEBHOOK_VERIFICATION_TOKEN ||
+			process.env.WEBHOOK_VERIFICATION_TOKEN ||
+			'',
 		[WAConfigEnum.ListenerPort]:
-			parseInt(process.env.LISTENER_PORT || '') || DEFAULT_LISTENER_PORT,
+			myConfig?.LISTENER_PORT ||
+			parseInt(process.env.LISTENER_PORT || '') ||
+			DEFAULT_LISTENER_PORT,
 		[WAConfigEnum.MaxRetriesAfterWait]:
+			myConfig?.MAX_RETRIES_AFTER_WAIT ||
 			parseInt(process.env.MAX_RETRIES_AFTER_WAIT || '') ||
 			DEFAULT_MAX_RETRIES_AFTER_WAIT,
 		[WAConfigEnum.RequestTimeout]:
-			parseInt(process.env.REQUEST_TIMEOUT || '') || DEFAULT_REQUEST_TIMEOUT,
-		[WAConfigEnum.Debug]: process.env.DEBUG === 'true',
+			myConfig?.REQUEST_TIMEOUT ||
+			parseInt(process.env.REQUEST_TIMEOUT || '') ||
+			DEFAULT_REQUEST_TIMEOUT,
+		[WAConfigEnum.Debug]:
+			myConfig?.DEBUG || process.env.DEBUG === 'true' || true,
 	};
-
 	LOGGER.log(`Configuration loaded for App Id ${config[WAConfigEnum.AppId]}`);
 
 	return config;
