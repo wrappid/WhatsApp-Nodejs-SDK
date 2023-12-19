@@ -22,7 +22,7 @@
 	"scripts": {
 		"start": "ts-node -r tsconfig-paths/register ./package/src/WhatsApp.ts",
 		"prebuild": "run-s create-version-file",
-		"build": "rimraf ./package/build && tsc -p tsconfig.json && ./package/node_modules/.bin/babel ./package/ --out-dir dist && rimraf ./package/build/__tests__/",
+		"build": "rimraf ./package/build && tsc -p tsconfig.json && ./node_modules/.bin/babel ./package/ --out-dir build && rimraf ./package/build/__tests__/",
 		"check-changelog": "node ./scripts/check_changelog.mjs",
 		"check-copyright-headers": "node ./scripts/check_copyright_headers.mjs",
 		"create-version-file": "node ./scripts/create_version_file.mjs",
