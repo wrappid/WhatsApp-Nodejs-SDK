@@ -19,26 +19,7 @@
 	"engines": {
 		"node": ">=16.19.1"
 	},
-	"scripts": {
-		"start": "ts-node -r tsconfig-paths/register ./package/src/WhatsApp.ts",
-		"prebuild": "run-s create-version-file",
-		"build": "rimraf ./package/build && tsc -p tsconfig.json && ./package/node_modules/.bin/babel ./package/ --out-dir dist && rimraf ./package/build/__tests__/",
-		"check-changelog": "node ./scripts/check_changelog.mjs",
-		"check-copyright-headers": "node ./scripts/check_copyright_headers.mjs",
-		"create-version-file": "node ./scripts/create_version_file.mjs",
-		"test": "echo 'testing not yet implemented'",
-		"test:spelling": "cspell \"{README.md,.github/*.md,website/docs/**/*.md}\"",
-		"test:prettier": "run-s prettier-format",
-		"test:lint": "eslint .",
-		"test:jest": "jest",
-		"test:typecheck": "tsc --noEmit",
-		"prettier-format": "prettier . --write",
-		"prettier-watch": "run-script-os",
-		"prettier-watch:win32": "onchange \"./**/*.ts\" \"scripts/*.mjs\" -- prettier --write {{changed}}",
-		"prettier-watch:darwin:linux": "onchange './**/*.ts' 'scripts/*.mjs' -- prettier --write {{changed}}",
-		"prettier-watch:default": "onchange './**/*.ts' 'scripts/*.mjs' -- prettier --write {{changed}}",
-		"publish": "npm publish ./package --registry=https://npm.pkg.github.com --scope=@wrappid"
-	},
+	"scripts": {},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/wrappid/WhatsApp-Nodejs-SDK.git"
@@ -59,7 +40,7 @@
 	"bugs": {
 		"url": "https://github.com/wrappid/WhatsApp-Nodejs-SDK/issues"
 	},
-	"dependencies": {
+	"peerDependencies": {
 		"@types/node": "~18.11.18"
 	},
 	"devDependencies": {

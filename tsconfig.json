@@ -7,8 +7,8 @@
 
 {
 	"compilerOptions": {
-		"baseUrl": "./",
-		"outDir": "build",
+		"baseUrl": "./package/",
+		"outDir": "./package/build",
 		"allowJs": true,
 		"target": "ES2021",
 		"module": "CommonJS",
@@ -26,5 +26,5 @@
 		"resolveJsonModule": true,
 		"forceConsistentCasingInFileNames": true
 	},
-	"include": ["src/**/*"]
+	"include": ["package/src/**/*"]
 }
