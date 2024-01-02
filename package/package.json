@@ -1,6 +1,6 @@
 {
 	"name": "@wrappid/whatsapp",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "SDK for interfacing with WhatsApp Business Platform in Typescript or Node.js using the Cloud API, hosted by Meta.",
 	"main": "./build/index.js",
 	"types": "./build/index.d.ts",
