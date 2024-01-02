@@ -1,6 +1,6 @@
 {
 	"name": "@wrappid/whatsapp",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "SDK for interfacing with WhatsApp Business Platform in Typescript or Node.js using the Cloud API, hosted by Meta.",
 	"main": "./build/index.js",
 	"types": "./build/index.d.ts",
@@ -21,11 +21,11 @@
 	},
 	"scripts": {
 		"start": "ts-node -r tsconfig-paths/register ./package/src/WhatsApp.ts",
-		"prebuild": "run-s create-version-file",
+		"prebuild": "run-s create-vrsn-file",
 		"build": "rimraf ./package/build && tsc -p tsconfig.json && ./node_modules/.bin/babel ./package/ --out-dir build && rimraf ./package/build/__tests__/",
 		"check-changelog": "node ./scripts/check_changelog.mjs",
 		"check-copyright-headers": "node ./scripts/check_copyright_headers.mjs",
-		"create-version-file": "node ./scripts/create_version_file.mjs",
+		"create-vrsn-file": "node ./scripts/create_vrsn_file.mjs",
 		"test": "echo 'testing not yet implemented'",
 		"test:spelling": "cspell \"{README.md,.github/*.md,website/docs/**/*.md}\"",
 		"test:prettier": "run-s prettier-format",
